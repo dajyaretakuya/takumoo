@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "从typename std::vector&lt;T&gt;::iterator说起"
+title:  "C++模板的一些二义性语法讨论"
 date:   2019-09-13 11:38:00 +0800
 categories: [Computers, Coding]
 tags: [C++ template]
