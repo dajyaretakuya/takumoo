@@ -18,7 +18,7 @@ std::vector<T>& arrayRotate(const std::vector<T>& src)
 	return dst;
 }
 ```
-如果能一眼发现哪里写错了，那么可以不用往下看了，你已经是半个`C++ template`专家了（笑）
+如果能一眼发现哪里写错了，那么可以不用往下看了（手动狗头）
 
 如果在VC中编译会提示`for (std::vector<T>::iterator iter = src.begin(); src.end() != iter; iter++)`这一行少了个`;`，但这明显不可能，仔细看下行中每个`token`的`Code IntelliSense`会发现在`iter`这个词上会提示`<error-type> iter`，那么问题很明显了，`std::vector<T>::iterator`这个类型无法别编译器确定。解决方案就很简单了，直接在前面加上`typename`以表明这是一个**类型名字**：
 ```cpp
