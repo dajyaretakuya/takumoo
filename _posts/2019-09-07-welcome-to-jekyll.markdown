@@ -6,7 +6,7 @@ categories: [Miscellaneous, Life]
 tags: [life]
 ---
 搬家到新域名。
-改换了markdown的blog系统，叫Jekyll。用Ruby编写，本地调试可编译成html然后用Nginx做成纯静态站点部署。
+投奔了Jekyll哈哈哈哈哈。本地调试可编译成html然后用Nginx做成纯静态站点部署。
 更轻便更省内存~大推荐~
 
 emmm审视了一下之前写的很多文都不满意，最后只留下了两篇
