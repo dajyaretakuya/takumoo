@@ -47,7 +47,7 @@ void printBitset (std::bitset<N> const& bs)
     std::cout << bs.template to_string<char, char_traits<char>, allocator<char> >();
 }
 ```
-其实这段代码本意是想调用`bs`的`to_string`成员函数，这个成员函数原型是这样的(注意这里用的是`C++ 11`以后的函数原型，之前的函数原型叫做`basic_string`)：
+其实这段代码本意是想调用`bs`的`to_string`成员函数，这个成员函数原型是这样的(注：在`C++ 11`以前，这个函数叫做`basic_string`，于`C++ 11`改名为`to_string`)：
 ```cpp
 template<
     class CharT = char,
@@ -56,7 +56,7 @@ template<
 > std::basic_string<CharT,Traits,Allocator>
     to_string(CharT zero = CharT('0'), CharT one = CharT('1')) const;
 ```
-那么这里为何不直接调用`bs.to_string`而要插入一个奇怪的`.template`声明呢？原因在于**这里传入参数bs是依赖于模板参数N构造的**，如果没有这个声明，编译器将不着调后面的小于号(`<`)并不是数学中的小于号，而是模板是参列表的起始符号[1]。
+那么这里为何不直接调用`bs.to_string`而要插入一个奇怪的`.template`声明呢？原因在于**这里传入参数bs是依赖于模板参数N构造的**，如果没有这个声明，编译器无法确定后面的小于号(`<`)并不是数学中的小于号，而是模板是参列表的起始符号[1]。
 
 因此，我们不难总结出，**只有当前面存在依赖于模板参数的对象时，才需要在模板内部使用`.template`或者`->template`来避免产生`二义性`**
 
