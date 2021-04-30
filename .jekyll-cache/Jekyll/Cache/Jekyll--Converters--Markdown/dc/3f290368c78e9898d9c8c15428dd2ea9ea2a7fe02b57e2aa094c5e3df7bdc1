@@ -1,0 +1,56 @@
+I"�<blockquote>
+  <p>本文写于2021年1月9日且内容极具时效性，如果您在阅读的时候发现有信息已经过时，可以去对应项目的官网查看最新说明。</p>
+</blockquote>
+
+<h2 id="1-编译器">1 编译器</h2>
+
+<p>目前，GCC仍不支持M1的编译。尽管使用Rosetta2可以，但编译出的结果仍然是x86平台的目标代码。因此唯一的选择是MacOS自带的Clang。</p>
+
+<h2 id="2-homebrew">2 Homebrew</h2>
+
+<p>光有编译器还不行，大型C++项目通常有各种各样的依赖。而Homebrew是管理这些依赖最方便的工具之一，幸运的是，现在Homebrew已可以在M1下运行，</p>
+
+<p><img src="{{site.url}}/assets/img/M1/homebrew.jpeg" alt="M1下运行的Homebrew" class="img-responsive" /></p>
+
+<p>尽管官方的更新日志仍然推荐使用Rosetta2版的Homebrew，但只要安装路径和传统的/usr/local区隔开（例如官方推荐的/opt/homebrew），那么大部分库和工具都可以顺利安装。这里推荐一个新旧两个版本的Homebrew共存的方法，可以参考这篇博客：</p>
+
+<p><a href="https://noahpeeters.de/posts/apple-silicon/homebrew-setup/">Setup Homebrew on Apple Siliconnoahpeeters.de</a></p>
+
+<p>在使用brew install命令安装某个依赖的时候，会优先寻找是否已有编译好的AArch64版本，如果没有，会直接下载源代码重新编译。</p>
+
+<h2 id="3-编译代码">3 编译代码</h2>
+
+<p>工具准备好了，就可以开始尝试编译项目。一些项目不存在任何依赖，直接configure后make即可。但一些项目存在大量依赖，就需要先用brew命令安装。这里拿libopenshot这个开源项目作为例子。</p>
+
+<p>首先按照官方文档描述，用之前准备好的原生Homebrew安装下列依赖：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew install ffmpeg librsvg swig doxygen unittest-cpp qt5 cmake zeromq libomp python@3.7
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>但安装完上述依赖还不够，还需要一个homebrew无法提供的库——libopenshot-audio。因此从官方拉下来这个项目的代码到一个新目录里。然后使用cmake进行构建。然而马上就会遇到问题，我们会遇到一个函数未声明的错误。该函数位于juce_osx_ObjCHelpers.h中：</p>
+
+<p><img src="{{site.url}}/assets/img/M1/juce_issue_01.jpeg" alt="函数未声明" class="img-responsive" /></p>
+
+<p>通过Apple官方文档可知，这该函数是用来解决x86架构下返回浮点值的函数在ABI上无法和返回整型值的函数兼容，因此在x86平台下必须使用objc_msgSend_fpret来返回非整型值，但非x86平台是不需要这个函数的：</p>
+
+<p><a href="https://developer.apple.com/documentation/objectivec/1456697-objc_msgsend_fpret">https://developer.apple.com/documentation/objectivec/1456697-objc_msgsend_fpretdeveloper.apple.com</a></p>
+
+<p>但libopenshot-audio的这处代码显然是将iOS认为是目前苹果唯一的AArch64架构的平台，因此我们可以做下面这样的改动：</p>
+
+<p><img src="{{site.url}}/assets/img/M1/juce_issue_02.jpeg" alt="JUCE代码的改动" class="img-responsive" /></p>
+
+<p>我们将这里用于判断目标平台的宏定义加了一个JUCE_ARM，来彻底把这段代码限制到只存在于x86平台上。（这里我不知为何一开始就不用ARM宏来限制，毕竟这些宏在最开始是一起定义好了的）再次编译，成功。接下来的libopenshot就比较好办了，只需要设置好指定了libopenshot-audio安装根目录的环境变量，即可编译成功。</p>
+
+<h2 id="4-总结">4 总结</h2>
+
+<p>M1下的原生应用确实比Rosetta2运行效率高很多，拿Java来说，我使用Zulu的AArch64版本的JDK做一个最简单的循环累加测试，最高会比使用Rosetta2的JDK性能会有40%的提升。不过，并非所有的软件都能像libopenshot一样只修改少数地方即可编译成M1原生应用，下面这个清单列出了目前常用的软件在M1下的支持情况：</p>
+
+<p><a href="https://github.com/ThatGuySam/doesitarm">https://github.com/ThatGuySam/doesitarmgithub.com</a></p>
+
+<p>可以作为一个使用前的评估依据。</p>
+
+<blockquote>
+  <p>这份清单也具有实效性问题，因此如果在对某个具体的项目存在疑惑，建议去官方网站查看其支持情况。</p>
+</blockquote>
+:ET

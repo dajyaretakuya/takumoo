@@ -13,10 +13,10 @@ title: Takumoo                          # the main title
 tagline: 宅木  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Hey! 我叫Takumoo。Otaku的taku，木头的mo
+  适合宅男看的简单计算机理论
 
 # Replace with your domain, e.g. 'https://username.github.io'
-url: 'https://www.takumoo.com'
+url: 'https://dajyaretakuya.github.io'
 
 author: Takuya Kanbara                  # change to your full name
 
@@ -33,7 +33,7 @@ social:
   email: dajyaretakuya@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    # - https://twitter.com/username      # change to your twitter homepage
+    - https://twitter.com/dajyaretakuya      # change to your twitter homepage
     - https://github.com/dajyaretakuya       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username

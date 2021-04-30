@@ -1,0 +1,20 @@
+I"'<h1 id="1-什么是高维数据">1 什么是高维数据</h1>
+<p><strong>高维数据</strong>这个名词听着挺吓人的，但其实我们日常开发中不知不觉已经接触过很多了。例如我们最常用的Elastic Search搜索引擎，其核心算法就是把要搜索的文档转换成<strong>某种数据形式</strong>存储起来，在有搜索请求的时候，执行某种算法，将相关的文档尽可能的全部召唤出来，并按照相关度从高到低排序。又例如我们经常用到的商品推荐系统，大家耳熟能详的协同过滤，其实是通过一种<strong>特殊的矩阵</strong>为核心理论实现的。</p>
+
+<p>上面提到的<strong>某种数据形式</strong>和<strong>特殊的矩阵</strong>其实就是接下来我们要探讨的课题——高维数据。其实我们从刚进入计算机科学基础的学习时就已经频繁接触过高维数据了，<code class="language-plaintext highlighter-rouge">C++</code>中的<code class="language-plaintext highlighter-rouge">vector</code>其实就是一个典型的高维数据存储容器。是的，其实高维数据在通常情况下我们可以用一个二维数组来表示。数组的第一个维度是<strong>维数</strong>，我们通常用<code class="language-plaintext highlighter-rouge">d</code>表示，第二个维度是<strong>数据的数量</strong>，我们通常用<code class="language-plaintext highlighter-rouge">n</code>表示，整个数组构成了一个<code class="language-plaintext highlighter-rouge">d × n</code>的<strong>二维矩阵</strong>其实就是我们最经常碰到的一种高维数据的表现形式。</p>
+
+<p>等等，上面这个定义是不是感觉矛盾了？明明是一个二维矩阵，但为什么说它是高维？这里面有个概念要弄清楚：<strong>矩阵的维度</strong>和<strong>数据的维度</strong>是不同的。为了更明确的解释这个问题，我们需要详细来描述一下<strong>特征空间</strong>这个概念。</p>
+
+<h1 id="2-特征空间">2 特征空间</h1>
+<p>我们分析数据，首先就是要确立用什么标准量化数据，这就是数据的<strong>特征化</strong>，最常见的特征化方法之一就是把每一条数据都统一成向量的形式。例如，音乐库里有甲、乙、丙三首歌，我用<code class="language-plaintext highlighter-rouge">1</code>代表喜欢，<code class="language-plaintext highlighter-rouge">-1</code>代表不喜欢，那么我们可以用向量<code class="language-plaintext highlighter-rouge">(1, 1, -1)</code>表示小明的歌曲喜好。这里向量<code class="language-plaintext highlighter-rouge">(1, 1, -1)</code>就是小明这条数据的特征，其他用户有其他的不同特征，例如小红的特征是<code class="language-plaintext highlighter-rouge">(-1, -1, -1)</code>，小刚的是<code class="language-plaintext highlighter-rouge">(1, -1, 1)</code>。所有这些特征都可以表示为一个三维坐标系的向量，也就是做表空间的从原点出发的某个点，这些点汇聚成的点云所在的这个坐标空间就是我们说的<strong>特征空间</strong>[1]。特征空间的维度就是我们所说的数据的维度。这和上一节提到的矩阵的维度是不同的。</p>
+
+<p>可想而知，我们实际音乐库中存储的歌曲数量远不止三首，那么数据的维度将会是数十万甚至上百万，那么维度的数量也会呈现爆炸式增长，这种增长将会给我们的计算带来非常大的不便，接下来我们就讨论一下这种影响会糟糕到什么程度。</p>
+
+<h1 id="3-维度灾难">3 维度灾难</h1>
+<p>在讨论维度灾难之前，我们先看两个例子。</p>
+<h1 id="31-线性判别分析lda">3.1 线性判别分析（LDA）</h1>
+
+<h1 id="参考文献">参考文献</h1>
+<p>[1] 《精通特征工程》</p>
+
+:ET

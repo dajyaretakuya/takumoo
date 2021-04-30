@@ -1,0 +1,35 @@
+I"ö
+<div id="tags" class="d-flex flex-wrap ml-xl-2 mr-xl-2">
+
+
+
+
+
+
+  <div>
+    <a class="tag" href="/tags/c%2B%2B/">C++<span class="text-muted">1</span></a>
+  </div>
+
+  <div>
+    <a class="tag" href="/tags/c%2B%2B-template/">C++ template<span class="text-muted">1</span></a>
+  </div>
+
+  <div>
+    <a class="tag" href="/tags/computer-graphics/">Computer Graphics<span class="text-muted">1</span></a>
+  </div>
+
+  <div>
+    <a class="tag" href="/tags/life/">life<span class="text-muted">2</span></a>
+  </div>
+
+  <div>
+    <a class="tag" href="/tags/theory-of-machine-learning/">Theory of Machine Learning<span class="text-muted">2</span></a>
+  </div>
+
+  <div>
+    <a class="tag" href="/tags/unicode/">unicode<span class="text-muted">1</span></a>
+  </div>
+
+
+</div>
+:ET

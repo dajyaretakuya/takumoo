@@ -1,0 +1,9 @@
+I"�<p>最近碰到了一个奇怪的跨平台代码：
+```cpp
+// no strnlen on some OSes (Mac OS)
+#if !HAVE_STRNLEN
+size_t strnlen ( const char * s, size_t iMaxLen )
+{
+	if ( !s )
+		return 0;</p>
+:ET

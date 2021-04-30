@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "高维数据算法基础 1 概况"
+title:  "高维数据算法基础 (一) 高维数据的基本概念(未完)"
 date:   2019-10-05 15:52:00 +0800
-categories: jekyll update
+categories: [Machine Learning, Mathematics]
+tags: [Theory of Machine Learning]
 ---
 
 # 1 什么是高维数据

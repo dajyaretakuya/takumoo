@@ -1,0 +1,135 @@
+I"�	<div id="archives" class="pl-xl-2">
+
+  
+  
+  
+    
+    
+  <span class="lead">2021</span>
+  <ul class="list-unstyled">
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">09</span>
+        <span class="date month small text-muted">Jan</span>
+        <a href="/posts/Build-code-on-apple-silicon/">在M1上尝试编译一些工具</a>
+      </div>
+    </li>
+  
+  </ul>
+  <span class="lead">2019</span>
+  <ul class="list-unstyled">
+    
+    
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">12</span>
+        <span class="date month small text-muted">Nov</span>
+        <a href="/posts/diary-and-book-realtime-steam-protocol/">随笔+书籍推荐：《实时流协议概况》</a>
+      </div>
+    </li>
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">05</span>
+        <span class="date month small text-muted">Oct</span>
+        <a href="/posts/GUI-Introduction/">深入理解GUI (一) GUI的基本理论（未完）</a>
+      </div>
+    </li>
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">05</span>
+        <span class="date month small text-muted">Oct</span>
+        <a href="/posts/high-dimensional-data-algorithm-1/">高维数据算法基础 (一) 高维数据的基本概念(未完)</a>
+      </div>
+    </li>
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">13</span>
+        <span class="date month small text-muted">Sep</span>
+        <a href="/posts/typename-in-cplusplus-template/">C++模板的一些二义性语法讨论</a>
+      </div>
+    </li>
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">10</span>
+        <span class="date month small text-muted">Sep</span>
+        <a href="/posts/function-exists-verification-for-strnlen/">从一个HAVE_STRNLEN宏定义说起</a>
+      </div>
+    </li>
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">07</span>
+        <span class="date month small text-muted">Sep</span>
+        <a href="/posts/welcome-to-jekyll/">博客搬家</a>
+      </div>
+    </li>
+  
+  </ul>
+  <span class="lead">2018</span>
+  <ul class="list-unstyled">
+    
+    
+  
+
+  
+  
+  
+    <li>
+      <div>
+        
+        
+        <span class="date day">06</span>
+        <span class="date month small text-muted">Nov</span>
+        <a href="/posts/the-encoding-history/">字符编码的历史</a>
+      </div>
+    </li>
+  
+  </ul>
+  
+
+</div>
+:ET
